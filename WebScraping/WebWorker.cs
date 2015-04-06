@@ -34,7 +34,7 @@ namespace WebScraping {
 
         public static string searchTags( string source, string tag ) {
             //todo: verify additional script functionality
-            var matches = Regex.Matches(source, String.Format("(<{0}.*?>)", tag), RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            var matches = Regex.Matches(source, String.Format("(<{0}.*?>[\\S\\s]*?</.*?>)", tag), RegexOptions.Multiline | RegexOptions.IgnoreCase);
             var result = String.Empty;
             foreach (var match in matches)
             {
